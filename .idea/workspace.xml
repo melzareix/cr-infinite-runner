@@ -11,7 +11,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ef0924a-118d-4004-99ca-e51f13787456" name="Default" comment="" />
+    <list default="true" id="4ef0924a-118d-4004-99ca-e51f13787456" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +36,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
@@ -42,6 +46,16 @@
                 <element signature="e#590#1197#0" expanded="false" />
                 <element signature="e#6032#7135#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1061">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,6 +131,9 @@
       <replace>DrawSpike();</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -153,6 +170,7 @@
         <option value="$PROJECT_DIR$/Models/Potions.h" />
         <option value="$PROJECT_DIR$/Models/Potions.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -162,6 +180,7 @@
     <option name="width" value="1280" />
     <option name="height" value="733" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <flattenPackages />
@@ -182,7 +201,7 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="pot&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Potions.h&#10;sta&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameState.h&#10;main&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/main.cpp&#10;rock&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Rocket.cpp&#10;game&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameManager.h&#10;po&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Potions.h&#10;p&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Potions.cpp&#10;sce&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.cpp&#10;mai&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/main.cpp&#10;bal&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Balloon.h&#10;stat&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameState.h&#10;scen&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.h&#10;games&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameState.h&#10;rocke&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Rocket.cpp&#10;main.&#9;FILE&#9;file:///Users/melzarei/CLionProjects/Assignment1/main.cpp&#10;audi&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.h&#10;gamema&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameManager.h&#10;scenc&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.h&#10;dar&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/DartGoblin.cpp&#10;log&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Log.cpp&#10;state&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameState.cpp&#10;ball&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Balloon.h&#10;aa&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/AABB.cpp&#10;roc&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Rocket.cpp&#10;dart&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/DartGoblin.cpp&#10;scence&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.cpp&#10;aud&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.cpp&#10;audio&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.h&#10;audipl&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.cpp&#10;aab&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/AABB.h&#10;sph&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Sphere.h&#10;s&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Sphere.cpp&#10;ma&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/main.cpp&#10;sphe&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Sphere.h&#10;sh&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Sphere.h&#10;play&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.cpp&#10;open&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;openme&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;meshl&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;fenc&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Fence.cpp&#10;mesh&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;fen&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Fence.cpp&#10;openm&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;fence&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Fence.cpp&#10;sc&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.h&#10;ope&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;audioma&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Engine/Audio/AudioManager.cpp&#10;audiomana&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Engine/Audio/AudioManager.cpp&#10;audip&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.h&#10;sch&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.h" />
+    <property name="SearchEverywhereHistoryKey" value=".gitign&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/.gitignore&#10;pot&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Potions.h&#10;sta&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameState.h&#10;main&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/main.cpp&#10;rock&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Rocket.cpp&#10;game&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameManager.h&#10;po&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Potions.h&#10;p&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Potions.cpp&#10;sce&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.cpp&#10;mai&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/main.cpp&#10;bal&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Balloon.h&#10;stat&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameState.h&#10;scen&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.h&#10;games&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameState.h&#10;rocke&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Rocket.cpp&#10;main.&#9;FILE&#9;file:///Users/melzarei/CLionProjects/Assignment1/main.cpp&#10;audi&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.h&#10;gamema&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameManager.h&#10;scenc&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.h&#10;dar&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/DartGoblin.cpp&#10;log&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Log.cpp&#10;state&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/GameState.cpp&#10;ball&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Balloon.h&#10;aa&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/AABB.cpp&#10;roc&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Rocket.cpp&#10;dart&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/DartGoblin.cpp&#10;scence&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.cpp&#10;aud&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.cpp&#10;audio&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.h&#10;audipl&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.cpp&#10;aab&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/AABB.h&#10;sph&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Sphere.h&#10;s&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Sphere.cpp&#10;ma&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/main.cpp&#10;sphe&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Sphere.h&#10;sh&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Sphere.h&#10;play&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.cpp&#10;open&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;openme&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;meshl&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;fenc&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Fence.cpp&#10;mesh&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;fen&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Fence.cpp&#10;openm&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;fence&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Fence.cpp&#10;sc&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Models/Scence.h&#10;ope&#9;FILE&#9;file:///Users/melzarei/Downloads/OpenGLMeshLoader/OpenGLMeshLoader.cpp&#10;audioma&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Engine/Audio/AudioManager.cpp&#10;audiomana&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Engine/Audio/AudioManager.cpp&#10;audip&#9;FILE&#9;file:///Users/melzarei/CLionProjects/GFX_Project/Game/AudioPlayer.h" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
@@ -234,12 +253,12 @@
       <workItem from="1513085011945" duration="2228000" />
       <workItem from="1513089254432" duration="9558000" />
       <workItem from="1513099005229" duration="146000" />
-      <workItem from="1513102433099" duration="7126000" />
+      <workItem from="1513102433099" duration="7305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85611000" />
+    <option name="totallyTimeSpent" value="85790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="733" extended-state="0" />
@@ -250,7 +269,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289855" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289855" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289855" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -304,13 +323,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/auplay-master/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1473">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TextureBuilder.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -684,6 +696,14 @@
             <element signature="e#590#1197#0" expanded="false" />
             <element signature="e#6032#7135#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1061">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
