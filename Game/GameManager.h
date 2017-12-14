@@ -8,8 +8,8 @@
 
 struct GameManager {
  private:
-  AudioPlayer *backgroundAudioPlayer;
  public:
+  AudioPlayer *backgroundAudioPlayer;
   GameManager();
   void PlayBackgroundMusic();
   void PlayLogMusic();

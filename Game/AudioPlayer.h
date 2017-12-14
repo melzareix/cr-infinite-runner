@@ -19,6 +19,7 @@ struct AudioPlayer {
   AudioPlayer();
   bool isPlaying();
   void seek();
+  void stop();
   double duration();
   double progress();
   double remaining();

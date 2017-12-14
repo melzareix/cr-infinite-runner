@@ -16,6 +16,8 @@ struct Potion {
   bool rage;
   double rotationAngle = 0, transZ = -40;
   bool taken = false;
+  float alpha = 0.3;
+  int alphaFactor = 1;
   explicit Potion(GameManager *gm, bool);
   void Render();
   void Animate();

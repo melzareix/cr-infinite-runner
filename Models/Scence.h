@@ -29,7 +29,7 @@ struct Scence {
   void DrawBox();
   void ChangeArena(GLuint, GLuint);
   void Render();
-  void AdjustCamera(bool);
+  void AdjustCamera(int);
   void AdjustCameraOrientation(bool, double, double);
   void DrawGameLost();
  private:

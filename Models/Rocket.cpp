@@ -35,29 +35,37 @@ void Rocket::drawRocketTail() {
 }
 void Rocket::DrawRocket() {
   //lower cover of the rocket
+  glEnable(GL_TEXTURE_2D);
   glPushMatrix();
-  glColor3f(0.294, 0.294, 0.294);
   glRotated(-90, 1, 0, 0);
+  glBindTexture(GL_TEXTURE_2D, texture);
   GLUquadric *cover = gluNewQuadric();
+  gluQuadricTexture(cover, GL_TRUE);
+  gluQuadricNormals(cover, GLU_SMOOTH);
   gluDisk(cover, 0, 0.2, 100, 100);
   glPopMatrix();
 
   // body
   glPushMatrix();
-  glColor3f(0.294, 0.294, 0.294);
   glRotated(-90, 1, 0, 0);
+  glBindTexture(GL_TEXTURE_2D, texture);
   GLUquadric *body = gluNewQuadric();
+  gluQuadricTexture(body, GL_TRUE);
+  gluQuadricNormals(body, GLU_SMOOTH);
   gluCylinder(body, 0.2, 0.2, 0.5, 100, 100);
   glPopMatrix();
 
   // head
   glPushMatrix();
-  glColor3f(0.666, 0.666, 0.666);
   glTranslated(0, 0.5, 0);
   glRotated(-90, 1, 0, 0);
+  glBindTexture(GL_TEXTURE_2D, texture);
   GLUquadric *head = gluNewQuadric();
+  gluQuadricTexture(head, GL_TRUE);
+  gluQuadricNormals(head, GLU_SMOOTH);
   gluCylinder(head, 0.2, 0, 0.2, 100, 100);
   glPopMatrix();
+  glDisable(GL_TEXTURE_2D);
 
   // tails
   glPushMatrix();
@@ -97,8 +105,6 @@ void Rocket::Animate() {
 }
 void Rocket::Update() {
   zTrans += 0.8;
-//  xTrans = sin(zTrans) * 0.7;
-//  rocketAngle += 2 * angleSign;
 
   if(zTrans >= nextZ) {
     nextZ += 2.0;
@@ -113,11 +119,12 @@ void Rocket::Update() {
   collisionBox->center.z = -30 + zTrans;
   collisionBox->Update();
 }
-Rocket::Rocket(GameManager *gm) {
+Rocket::Rocket(GameManager *gm, GLuint texture) {
   double r[] = {0.3, 0, -0.3};
   xTrans = r[random() % 3];
   collisionBox = new Box(Vec3{-xTrans, 0, 0}, 0.4, 0.5, 0);
   this->gm = gm;
+  this->texture = texture;
 }
 void Rocket::PlayMusic() {
   gm->PlayRocketMusic();

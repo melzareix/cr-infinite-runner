@@ -13,11 +13,15 @@ void Scence::DrawWall(double thickness) {
   glPopMatrix();
 }
 
-void printToScreen(float x, float y, const char *string) {
+void printToScreen(float x, float y, float z, const char *string, bool window) {
   int len, i;
 
   //set the position of the text in the window using the x and y coordinates
-  glWindowPos2f(x, y);
+  if (window)
+    glWindowPos3f(x, y, z);
+  else
+    glRasterPos3f(x, y, z);
+
 
   //get the length of the string to display
   len = (int) strlen(string);
@@ -50,20 +54,20 @@ void Scence::DrawBox() {
   glPopMatrix();
 
   if (!state->gameEnded) {
-  std::string s = "Score: " + std::to_string(state->score);
+  std::string s = "Score: " + std::to_string(state->score) + " (" + std::to_string(state->mult) + "x)";
   glColor3f(1.0, 0, 0);
-  printToScreen(630, 550, s.c_str());
+  printToScreen(620, 550, 0, s.c_str(), true);
 
   s = "Lives: " + std::to_string(state->lives);
   glColor3f(1.0, 0, 0);
-  printToScreen(630, 520, s.c_str());
+  printToScreen(620, 520, 0, s.c_str(), true);
   glColor3f(1.0, 1.0, 1.0);
   }
 }
-void Scence::AdjustCamera(bool inc = false) {
+void Scence::AdjustCamera(int inc = 0) {
   double rad = cameraRadius;
   if (isThirdPersonCamera) rad = third_person_radius;
-  if (inc) angle += 0.2f*factor;
+  if (inc) angle += 0.005f * inc *factor;
   x = sin(angle)*rad;
   z = cos(angle)*rad;
   if (angle >= 6.28) angle = 0.0;
@@ -71,7 +75,7 @@ void Scence::AdjustCamera(bool inc = false) {
 void Scence::AdjustCameraOrientation(bool adjust, double xPos, double yInc) {
   if (cameraYpos > 1.0) cameraYpos -= 0.2;
   else state->didFinishLoading = true;
-  AdjustCamera(false);
+  AdjustCamera(0);
   if (!adjust) xPos = yInc = 0;
   gluLookAt(x - xPos, cameraYpos + yInc, z, -xPos, 1.0 + yInc, 0.0f, 0.0, 1.0f, 0.0);
 }
@@ -188,25 +192,26 @@ void Scence::DrawGameLost() {
   DrawWall(0.1);
   glPopMatrix();
 
+  glColor4f(1, 0, 0, 1);
   std::string s = "Final Score\n";
   glColor3f(1.0, 0, 0);
-  printToScreen(350, 400, s.c_str());
+  printToScreen(-0.6f, 2, 1, s.c_str(), false);
 
   s = std::to_string(state->score);
   glColor3f(1.0, 0, 0);
-  printToScreen(390, 350, s.c_str());
+  printToScreen(-0.2f, 1.4, 1, s.c_str(), false);
 
   s = "Press N to reset\n";
   glColor3f(1.0, 0, 0);
-  printToScreen(330, 300, s.c_str());
+  printToScreen(-0.8f, 1, 1, s.c_str(), false);
 
   s = "Press Q to quit\n";
   glColor3f(1.0, 0, 0);
-  printToScreen(330, 270, s.c_str());
+  printToScreen(-0.8f, 0.5, 1, s.c_str(), false);
 
   if (state->lives == 0) {
     factor = -1;
-    AdjustCamera(true);
+    AdjustCamera(30);
     AdjustCameraOrientation(false, 0, 0);
     state->lives = -1;
   }

@@ -4,6 +4,7 @@
 #include "AudioPlayer.h"
 AudioPlayer::AudioPlayer() {
   backgroundMusic = AudioManager::file("Content/Sounds/bg_s.mp3");
+  backgroundMusic->stop();
 }
 
 void AudioPlayer::Play() {
@@ -62,4 +63,7 @@ void AudioPlayer::playSpellMusic(bool rage) {
       spellMusic = AudioManager::file("Content/Sounds/heal.wav");
       spellMusic->play();
     }
+}
+void AudioPlayer::stop() {
+  backgroundMusic->stop();
 }

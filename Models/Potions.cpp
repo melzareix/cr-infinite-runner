@@ -42,6 +42,9 @@ void Potion::Update() {
   collisionBox->center.z = transZ;
   collisionBox->Update();
   if (rotationAngle >= 360) rotationAngle = 0;
+  alpha += 0.025 * alphaFactor;
+  if (alpha >= 0.6) alphaFactor = -1;
+  if (alpha <= 0.3) alphaFactor = 1;
 }
 
 Potion::Potion(GameManager *gm, bool rage) {
@@ -84,7 +87,7 @@ void Potion::DrawPyramidHead() {
 }
 void Potion::DrawBottle() {
   glPushMatrix(); //glass bottle
-  glColor4f(1, 1, 1, 0.3);
+  glColor4f(1, 1, 1, alpha);
   glScalef(1, 1.3, 1);
   glTranslated(0, 0.5*1.05, 0);
   glutSolidCube(1.05);
@@ -126,7 +129,6 @@ void Potion::DrawBottle() {
   glutSolidSphere(0.22, 30, 30);
 
   glPopMatrix();
-
   glPopMatrix();
 }
 void Potion::PlayMusic() {

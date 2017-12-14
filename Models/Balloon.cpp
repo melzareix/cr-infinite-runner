@@ -28,7 +28,7 @@ void Balloon::PlayMusic() {
 }
 void Balloon::Update() {
 
-  balloonZ += 0.25; // lsa mbaztsh
+  balloonZ += 0.25;
   balloonX = sin(balloonZ);
 
   // don't forget to reset bombEnable
@@ -57,10 +57,18 @@ void Balloon::DrawBalloon() {
   glPushMatrix();
 
   // body
+  glEnable(GL_TEXTURE_2D);
+  glEnable(GL_DEPTH);
+  glEnable(GL_TEXTURE_GEN_S); //enable texture coordinate generation
+  glEnable(GL_TEXTURE_GEN_T);
   glPushMatrix();
-  glColor3f(0.439, 0.3333, 0.227);
+  glBindTexture(GL_TEXTURE_2D, texture);
+//  glColor3f(0.439, 0.3333, 0.227);
   glutSolidCube(0.5);
   glPopMatrix();
+  glDisable(GL_TEXTURE_GEN_S); //enable texture coordinate generation
+  glDisable(GL_TEXTURE_GEN_T);
+  glDisable(GL_TEXTURE_2D);
 
   // ropes
   glPushMatrix();
@@ -96,25 +104,36 @@ void Balloon::DrawBalloon() {
   glPopMatrix();
 
   // balloon
+  glEnable(GL_TEXTURE_2D);
   glPushMatrix();
-  glColor3f(0.196, 0.3137, 0.4313);
+//  glColor3f(0.196, 0.3137, 0.4313);
   glTranslated(0, 1.3, 0);
-  glutSolidSphere(0.7, 100, 100);
+  glBindTexture(GL_TEXTURE_2D, textureTop);
+  GLUquadric *sphere = gluNewQuadric();
+  gluQuadricTexture(sphere, GL_TRUE);
+  gluQuadricNormals(sphere, GLU_SMOOTH);
+  gluSphere(sphere, 0.7, 100, 100);
+  gluDeleteQuadric(sphere);
+//  glutSolidSphere(0.7, 100, 100);
   glPopMatrix();
   glPopMatrix();
 
+  glDisable(GL_TEXTURE_2D);
   glColor3f(1, 1, 1);
 }
-Balloon::Balloon(GameManager *gm) {
+Balloon::Balloon(GameManager *gm, GLuint texture, GLuint textureTop) {
   double f[] = {-6, -2, -8};
   dropValue = f[random()%3];
   printf("%.2f\n", dropValue);
   this->gm = gm;
+  this->texture = texture;
+  this->textureTop = textureTop;
   collisionBox = new Box(Vec3{-1000, -1000, -1000}, 0, 0.3, 0);
 }
 void Balloon::DrawBalloonBomb() {
   // Sphere
   glPushMatrix();
+  glColor4f(0.2, 0.2, 0.2, 1);
   glutSolidSphere(0.2, 100, 100);
   glPopMatrix();
 

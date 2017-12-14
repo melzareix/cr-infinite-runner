@@ -12,7 +12,7 @@
 double angle = 0, alpha = 0;
 
 #define ARENA_CHANGING_TIME 6000
-#define SHOW_SPELL_EVERY 20000
+#define SHOW_SPELL_EVERY 15000
 GameManager *gm;
 Scence *scence;
 Fence *fence;
@@ -25,12 +25,13 @@ Potion *heal;
 Potion *rage;
 GLuint textures[10];
 GLuint grounds[3];
-GLuint materials[3];
+GLuint materials[4];
 
 void SetupLights() {
   glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);
 
+  // Light
   GLfloat ambient[] = {0.7f, 0.7f, 0.7f, 1.0f};
   glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
   GLfloat diffuse[] = {0.3f, 0.3f, 0.3f, 1.0f};
@@ -41,10 +42,8 @@ void SetupLights() {
   glEnable(GL_COLOR_MATERIAL);
   glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
 
-  glPushMatrix();
-  GLfloat lightPosition[] = {0.0f, 300.0f, static_cast<GLfloat>(angle), 0.0f };
+  GLfloat lightPosition[] = {0.0f, 200.0f, -(float)angle, 0.0f };
   glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
-  glPopMatrix();
 
 }
 void setupCamera() {
@@ -59,14 +58,13 @@ void init() {
   loadBMP(&textures[0], "../Content/Textures/bone_arena.bmp", 832, 1048, true);
   loadBMP(&textures[1], "../Content/Textures/training_camp.bmp", 256, 256, true);
   loadBMP(&textures[2], "../Content/Textures/jungle-2.bmp", 1024, 784, true);
-//  loadBMP(&textures[3], "../Content/Textures/sky-tex.bmp", 1600, 960, true);
   loadBMP(&textures[3], "../Content/Textures/sky-c.bmp", 1024, 1024, true);
-//  loadBMP(&textures[3], "../Content/Textures/sky-tex-2.bmp", 1024, 1024, true);
-//  loadBMP(&textures[3], "../Content/Textures/sky-jpg.bmp", 640, 159, true);
-//  loadBMP(&textures[3], "../Content/Textures/sky4-jpg.bmp", 640, 360, true);
   loadBMP(&materials[0], "../Content/Textures/wood-3.bmp", 612, 408, true);
   loadBMP(&materials[1], "../Content/Textures/wood-5.bmp", 600, 600, true);
   materials[2] = materials[0];
+  loadBMP(&materials[3], "../Content/Textures/balloon.bmp", 256, 256, true);
+  loadBMP(&materials[4], "../Content/Textures/balloon-box.bmp", 256, 256, true);
+  loadBMP(&materials[5], "../Content/Textures/metal.bmp", 256, 256, true);
   loadBMP(&grounds[0], "../Content/Textures/sand.bmp", 256, 256, true);
   loadBMP(&grounds[1], "../Content/Textures/water.bmp", 800, 600, true);
   loadBMP(&grounds[2], "../Content/Textures/ground.bmp", 956, 956, true);
@@ -77,8 +75,8 @@ void init() {
   dartGoblin = new DartGoblin();
   gm = new GameManager();
   obstacleLog = new Log(gm);
-  rocket = new Rocket(gm);
-  balloon = new Balloon(gm);
+  rocket = new Rocket(gm, materials[5]);
+  balloon = new Balloon(gm, materials[4], materials[3]);
   heal = new Potion(gm, false);
   rage = new Potion(gm, true);
 }
@@ -147,6 +145,7 @@ void Display() {
 
 void KeyPressed(unsigned char key, int x, int y) {
   if (key == 'n' && state->gameEnded) {
+    gm->backgroundAudioPlayer->stop();
     init();
   }
   if (key == 'q' && state->gameEnded) {
@@ -155,11 +154,11 @@ void KeyPressed(unsigned char key, int x, int y) {
   if (state->gameEnded) return;
   if (key=='r') {
     scence->factor = 1;
-    scence->AdjustCamera(true);
+    scence->AdjustCamera(1);
   }
   if (key=='e') {
     scence->factor = -1;
-    scence->AdjustCamera(true);
+    scence->AdjustCamera(1);
   }
   if (key=='a') {
     gm->PlayGoblinWalk();
@@ -204,7 +203,7 @@ void CollisionDetectionTimer(int o) {
   }
 
   if (dartGoblin->collisionBox->didCollide(rage->collisionBox)) {
-    state->mult++;
+    state->mult = state->mult * 2; // exp growth
     rage->taken = true;
     gm->PlaySpellMusic(true);
   }
@@ -241,22 +240,23 @@ void Timer(int o) {
     switch (state->currentScence) {
       case 0:obstacleLog = new Log(gm);
         break;
-      case 1:rocket = new Rocket(gm);
+      case 1:rocket = new Rocket(gm, materials[5]);
         break;
-      default:balloon = new Balloon(gm);
+      default:balloon = new Balloon(gm, materials[4], materials[3]);
         break;
     }
   }
 
   gm->PlayBackgroundMusic();
-  glutPostRedisplay();
   int add = 0;
   if (state->didFinishLoading) add = 25;
-
+  if (state->gameEnded) o = add = 0;
+  glutPostRedisplay();
   glutTimerFunc(25, Timer, o + add);
 }
 void ShowSpellsTimer(int o) {
-  if (o >= SHOW_SPELL_EVERY) {
+
+  if (o >= SHOW_SPELL_EVERY && !state->gameEnded) {
     o = 0;
     state->startShowingSpells = true;
     if (state->rageShown) { // last spell was rage, show heal
@@ -267,9 +267,11 @@ void ShowSpellsTimer(int o) {
       state->rageShown = true;
     }
   }
+  if (state->gameEnded) o = 0;
   glutTimerFunc(100, ShowSpellsTimer, o + 100);
 }
 int main(int argc, char **argv) {
+  int i = 0;
   // Initialization
   glutInit(&argc, argv);
   glutInitWindowPosition(200, 100);
@@ -289,6 +291,6 @@ int main(int argc, char **argv) {
   glutKeyboardFunc(KeyPressed);
   glutTimerFunc(100, Timer, 0);
   glutTimerFunc(10, CollisionDetectionTimer, 0);
-  glutTimerFunc(100, ShowSpellsTimer, 0);
+  glutTimerFunc(100, ShowSpellsTimer, SHOW_SPELL_EVERY - 5000);
   glutMainLoop();
 }

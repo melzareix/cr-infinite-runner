@@ -48,7 +48,7 @@ static void HandleOutputBuffer(
         (pAqData->mPacketDescs ? numPackets : 0),
         pAqData->mPacketDescs
     );
-//        checkStatus(status);
+//        checkStpAqDataatus(status);
     pAqData->mCurrentPacket += numPackets;                // 7
   } else {
     status = AudioQueueStop(
@@ -62,7 +62,6 @@ static void HandleOutputBuffer(
 
 class AudioPlayerOsx : public AudioManager {
  public:
-
   bool load(CFURLRef url) {
 
     OSStatus status;
@@ -161,9 +160,7 @@ class AudioPlayerOsx : public AudioManager {
 
     return true;
   }
-
   bool isPlaying() const { return aqData.mIsRunning; }
-
   void primeBuffer() {
 
     OSStatus status;
@@ -193,7 +190,6 @@ class AudioPlayerOsx : public AudioManager {
 #endif
 
   }
-
   void play() {
 
     OSStatus status;
@@ -219,7 +215,6 @@ class AudioPlayerOsx : public AudioManager {
     checkStatus(status);
 
   }
-
   double duration() const {
     double dur = 0;
     unsigned int sz = sizeof(dur);
@@ -228,7 +223,6 @@ class AudioPlayerOsx : public AudioManager {
     checkStatus(status);
     return dur;
   }
-
   void seekToPacket(uint64_t packet) {
     AudioQueueStop(aqData.mQueue, true);
     aqData.mCurrentPacket = rand()%1000;
@@ -236,7 +230,6 @@ class AudioPlayerOsx : public AudioManager {
     AudioQueueStart(aqData.mQueue, NULL);
 
   }
-
   void seek(double sec) {
     double frame = sec*aqData.mDataFormat.mSampleRate;
 
@@ -254,7 +247,9 @@ class AudioPlayerOsx : public AudioManager {
     timeBase = trans.mFrame/aqData.mDataFormat.mSampleRate;
 
   }
-
+  void stop() {
+    AudioQueueStop(aqData.mQueue, true);
+  }
   double progress() const {
     double p = 0;
 
@@ -269,7 +264,6 @@ class AudioPlayerOsx : public AudioManager {
 //        checkStatus(status);
 
     p = timeStamp.mSampleTime/aqData.mDataFormat.mSampleRate + timeBase;
-
     return p;
   }
 
@@ -284,23 +278,16 @@ class AudioPlayerOsx : public AudioManager {
       //        std::cerr << "OK" << std::endl;
     }
   }
-
   ~AudioPlayerOsx() {
-
     OSStatus status;
-
     status = AudioQueueDispose(                            // 1
         aqData.mQueue,                             // 2
         true                                       // 3
     );
     checkStatus(status);
-
     status = AudioFileClose(aqData.mAudioFile);
     checkStatus(status);
-
     free(aqData.mPacketDescs);                    // 5
-
-
   }
 
  private:
@@ -357,6 +344,11 @@ AudioManager *AudioManager::file(const char *fn) {
 
   return ap;
 }
+void AudioManager::stop() {
+  auto *b = (AudioPlayerOsx *)this;
+  b->stop();
+}
+
 
 
 

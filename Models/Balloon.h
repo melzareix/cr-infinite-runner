@@ -13,10 +13,10 @@ struct Balloon {
   bool bombEnable = false;
   double bombX = 0.0f, bombY = 0.0f, bombZ = 0.0f;
   double balloonX = 0.0f, balloonY = 3.0f, balloonZ = -50.0f;
-  double balloonAngle = 0.0f;
   double dropValue;
+  GLuint texture, textureTop;
   GameManager *gm;
-  Balloon(GameManager *gm);
+  Balloon(GameManager *gm, GLuint texture, GLuint textureTop);
   void Render();
   void Animate();
   void PlayMusic();

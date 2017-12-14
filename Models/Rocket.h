@@ -13,13 +13,13 @@ struct Rocket {
   Box * collisionBox;
   double zTrans = 0.0f;
   double xTrans = 0.0f;
-  double rocketAngle = 0.0f;
   double nextZ = 1.0f;
   double angleSign = 1.0f;
   int f = 1;
   bool playedMusic = false;
+  GLuint texture;
   GameManager *gm;
-  Rocket(GameManager *gm);
+  Rocket(GameManager *gm, GLuint texture);
   void Render();
   void Animate();
   void PlayMusic();
